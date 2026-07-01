@@ -6,20 +6,19 @@
 /*   By: taegokim <taegokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 17:36:29 by taegokim          #+#    #+#             */
-/*   Updated: 2026/06/30 17:44:30 by taegokim         ###   ########.fr       */
+/*   Updated: 2026/07/01 14:39:50 by taegokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
 
-#define CONTACT_SIZE 8
-#define CHAR_WIDTH 10
 #include "Contact.hpp"
-
 
 class PhoneBook {
 public:
+	static const int CONTACT_SIZE = 8;
+	static const int CHAR_WIDTH = 10;
 	PhoneBook();
 	void add();
 	void search();
