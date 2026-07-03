@@ -6,23 +6,32 @@
 /*   By: taegokim <taegokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/03 12:12:08 by taegokim          #+#    #+#             */
-/*   Updated: 2026/07/03 16:58:49 by taegokim         ###   ########.fr       */
+/*   Updated: 2026/07/03 18:11:33 by taegokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
 #include <iostream>
 
-int main( int argc, char **argv )
+int main()
 {
-	if ( argc != 2 )
-	{
-		std::cout << "Usage: ./harl [DEBUG|INFO|WARNING|ERROR]" << std::endl;
-		return 1;
-	}
-
 	Harl harl;
-	harl.complain(argv[1]);
+
+	std::cout << "complain DEBUG:\n";
+	harl.complain("DEBUG");
+	std::cout << std::endl;
+	
+	std::cout << "complain INFO:\n";
+	harl.complain("INFO");
+	std::cout << std::endl;
+	
+	std::cout << "complain WARNING:\n";
+	harl.complain("WARNING");
+	std::cout << std::endl;
+	
+	std::cout << "complain ERROR:\n";
+	harl.complain("ERROR");
+	std::cout << std::endl;
 
 	return (0);
 }
