@@ -1,0 +1,28 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: taegokim <taegokim@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/07/03 12:12:08 by taegokim          #+#    #+#             */
+/*   Updated: 2026/07/03 16:58:49 by taegokim         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Harl.hpp"
+#include <iostream>
+
+int main( int argc, char **argv )
+{
+	if ( argc != 2 )
+	{
+		std::cout << "Usage: ./harl [DEBUG|INFO|WARNING|ERROR]" << std::endl;
+		return 1;
+	}
+
+	Harl harl;
+	harl.complain(argv[1]);
+
+	return (0);
+}
