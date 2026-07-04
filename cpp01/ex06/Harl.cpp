@@ -6,7 +6,7 @@
 /*   By: taegokim <taegokim@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/03 12:11:55 by taegokim          #+#    #+#             */
-/*   Updated: 2026/07/04 19:31:21 by taegokim         ###   ########.fr       */
+/*   Updated: 2026/07/04 19:35:58 by taegokim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void Harl::complain( std::string level ){
 		case LEV_WARNING:	warning();
 			/* fallthrough */
 		case LEV_ERROR: 	error(); 	break;
-		case LEV_EXPT:
+		default:
 			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
 	}
 }
