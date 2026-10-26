@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taegokim <taegokim@student.42.fr>          +#+  +:+       +#+        */
+/*   By: tg <tg@student.42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/23 17:36:49 by taegokim          #+#    #+#             */
-/*   Updated: 2026/06/30 18:13:29 by taegokim         ###   ########.fr       */
+/*   Updated: 2026/10/26 18:55:12 by tg               ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <string>
 #include <iostream>
 #include <iomanip>
+#include <limits>
 
 PhoneBook::PhoneBook(){
 	contact_idx_ = -1;
@@ -78,12 +79,24 @@ void PhoneBook::search(){
 				  << std::setw(CHAR_WIDTH) << std::right << trunc(contacts_[idx].get_nickname(), CHAR_WIDTH) << std::endl;
 	}
 	
+	if (contact_count_ == 0)	{
+		std::cout << "\n등록된 연락처가 없습니다...\n\n";
+		return ;
+	}
 	std::cout << "\n조회하고 싶은 인텍스를 입력하세요...\n";
 	size_t	idx;
-	while (std::cin >> idx){
-		idx--;
-		if (idx < contact_count_) break;
-		std::cout << "ERROR: 입력 범위 초과" << std::endl;
+	while (true){
+		if (!(std::cin >> idx)){
+			std::cout << "ERROR: 숫자를 입력하세요" << std::endl;
+			std::cin.clear();
+			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+			continue;
+		}
+		if (idx > contact_count_ || idx <= 0){
+			std::cout << "ERROR: 입력 범위 초과" << std::endl;
+			continue;
+		}
+		break;
 	}
-	std::cout << contacts_[(contact_idx_ + 1 + idx) % contact_count_];
+	std::cout << contacts_[(contact_idx_+ idx) % contact_count_];
 }
